@@ -25,12 +25,31 @@ ll power(ll x,  ll y)
     else
         return ((((x  %mod) * ((power(x, y / 2)%mod)))%mod * (power(x, y / 2)%mod))%mod)%mod;
 }
+ll combi(ll n,ll k)
+{
+    ll ans=1;
+    k=k>n-k?n-k:k;
+    int j=1;
+    for(;j<=k;j++,n--)
+    {
+        if(n%j==0)
+        {
+            ans*=n/j;
+        }else
+        if(ans%j==0)
+        {
+            ans=ans/j*n;
+        }else
+        {
+            ans=(ans*n)/j;
+        }
+    }
+    return ans;
+}
 
 void solve()
 {
-    ll n,m;
-    cin>>n,m;
-    cout<<gcd(n,m);
+
 }
 
 int main()
